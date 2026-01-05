@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <title>Mikhail Lazarev | Golang Developer</title>
+    <meta name="description" content="Mikhail Lazarev - Senior Golang Developer & DevOps Engineer. Portfolio, Experience, and Skills.">
+    <meta property="og:title" content="Mikhail Lazarev | Golang Developer">
+    <meta property="og:description" content="Senior Golang Developer & DevOps Engineer portfolio.">
+    <meta property="og:image" content="photo.jpg">
+    <meta property="og:type" content="website">
+
+    <!-- Фавикон (иконка Go) -->
+    <link rel="icon" type="image/png" href="https://cdn.simpleicons.org/go/00ADD8">
+
+    <!-- Стили и Шрифты -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="lang-en dark-mode"> <!-- Класс управляется через JS -->
+
+<!-- Кнопки управления (язык и тема) -->
+<div class="controls">
+    <button id="lang-switch" aria-label="Switch Language">
+        <span class="lang-text">RU</span>
+    </button>
+    <button id="theme-switch" aria-label="Toggle Theme">
+        <i class="fas fa-sun"></i>
+    </button>
+</div>
+
+<div class="container">
+    <!-- Header / Профиль -->
+    <header class="profile-header fade-in">
+        <div class="profile-photo">
+            <img src="photo.jpg" alt="Mikhail Lazarev">
+        </div>
+        <div class="profile-info">
+            <div class="lang-en">
+                <h1>Mikhail Lazarev</h1>
+                <h2>Golang Developer</h2>
+            </div>
+            <div class="lang-ru">
+                <h1>Михаил Лазарев</h1>
+                <h2>Golang-разработчик</h2>
+            </div>
+
+            <div class="contacts">
+                <a href="mailto:molazarev@gmail.com"><i class="fas fa-envelope"></i> molazarev@gmail.com</a>
+                <a href="https://t.me/molazarev" target="_blank"><i class="fab fa-telegram"></i> @molazarev</a>
+
+                <div class="location">
+                    <span class="lang-en"><i class="fas fa-map-marker-alt"></i> Moscow</span>
+                    <span class="lang-ru"><i class="fas fa-map-marker-alt"></i> Москва</span>
+                </div>
+
+                <!-- Кнопка скачивания PDF -->
+                <a href="resume.pdf" class="btn-download" target="_blank">
+                    <i class="fas fa-file-download"></i>
+                    <span class="lang-en">Download CV</span>
+                    <span class="lang-ru">Скачать резюме</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Обо мне -->
+    <section class="section fade-in">
+        <h3 class="section-title">
+            <span class="lang-en">About Me</span>
+            <span class="lang-ru">Обо мне</span>
+        </h3>
+        <div class="card glass">
+            <div class="lang-en">
+                <p>Golang Developer with 2.5 years of commercial experience and a strong engineering background in DevOps (over 5 years in IT total).</p>
+                <ul class="about-list">
+                    <li><strong>Go Development:</strong> Strong proficiency, concurrency (goroutines, channels), REST API design, network protocols.</li>
+                    <li><strong>System Design:</strong> Designing systems with fault tolerance, observability, and deployment ease in mind.</li>
+                    <li><strong>Infrastructure Background:</strong> Deep understanding of Linux, Docker, K8s, and CI/CD ensures code behaves predictably in production.</li>
+                </ul>
+            </div>
+            <div class="lang-ru">
+                <p>Golang-разработчик с 2,5 годами коммерческого опыта и сильным инженерным бэкграундом в DevOps (суммарно более 5 лет в IT).</p>
+                <ul class="about-list">
+                    <li><strong>Go Development:</strong> Уверенное владение языком, многопоточность (goroutines, channels), проектирование REST API, работа с сетевыми протоколами.</li>
+                    <li><strong>System Design:</strong> Проектирую системы с учетом требований отказоустойчивости, наблюдаемости (Observability) и удобства развертывания.</li>
+                    <li><strong>Инфраструктурный бэкграунд:</strong> Глубокое понимание Linux, Docker, K8s и CI/CD позволяет писать код, который предсказуемо ведет себя в production.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Опыт работы (Timeline) -->
+    <section class="section fade-in">
+        <h3 class="section-title">
+            <span class="lang-en">Experience</span>
+            <span class="lang-ru">Опыт работы</span>
+        </h3>
+
+        <div class="experience-timeline">
+            <!-- VK -->
+            <div class="experience-card card glass">
+                <div class="exp-header">
+                    <div class="exp-role">
+                        <span class="lang-en">Golang Developer</span>
+                        <span class="lang-ru">Golang-разработчик</span>
+                    </div>
+                    <div class="exp-company">VK (vk.company)</div>
+                    <div class="exp-date">
+                        <span class="lang-en">Aug 2023 — Present</span>
+                        <span class="lang-ru">Август 2023 — Настоящее время</span>
+                    </div>
+                </div>
+                <div class="exp-content">
+                    <div class="lang-en">
+                        <p><strong>Project: InfraKit (Infrastructure Validation Tool)</strong></p>
+                        <ul>
+                            <li>Implemented hybrid architecture with Pull-model (agent requests tasks).</li>
+                            <li>Created cross-platform agent modules: metrics, CPU/RAM validation, SELinux checks.</li>
+                            <li>Implemented parallel execution of network checks (ports, DNS, NTP) using Goroutines.</li>
+                            <li>Designed REST API for integration with Deployer platform.</li>
+                            <li>Developed reporting subsystem (JSON/HTML) and YAML config parsing with inheritance.</li>
+                        </ul>
+                    </div>
+                    <div class="lang-ru">
+                        <p><strong>Проект: InfraKit (Инструмент валидации инфраструктуры)</strong></p>
+                        <ul>
+                            <li>Реализация гибридной архитектуры с Pull-моделью.</li>
+                            <li>Создание модулей агента: сбор метрик, валидация CPU/RAM, проверка SELinux.</li>
+                            <li>Параллельное выполнение сетевых проверок (порты, DNS, NTP) на Goroutines.</li>
+                            <li>Проектирование REST API для интеграции с Deployer.</li>
+                            <li>Разработка генерации отчетов (JSON/HTML) и парсинг YAML с наследованием.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Home Credit -->
+            <div class="experience-card card glass">
+                <div class="exp-header">
+                    <div class="exp-role">
+                        <span class="lang-en">DevOps Engineer</span>
+                        <span class="lang-ru">DevOps-инженер</span>
+                    </div>
+                    <div class="exp-company">
+                        <span class="lang-en">Home Credit Bank</span>
+                        <span class="lang-ru">Банк Хоум Кредит</span>
+                    </div>
+                    <div class="exp-date">
+                        <span class="lang-en">Nov 2020 — Aug 2023</span>
+                        <span class="lang-ru">Ноябрь 2020 — Август 2023</span>
+                    </div>
+                </div>
+                <div class="exp-content">
+                    <div class="lang-en">
+                        <ul>
+                            <li><strong>Kubernetes:</strong> Full cycle setup, upgrades, and scaling.</li>
+                            <li><strong>CI/CD:</strong> GitLab pipelines, custom Jenkins Shared Libraries.</li>
+                            <li><strong>Observability:</strong> Prometheus, VictoriaMetrics, Grafana, Loki.</li>
+                            <li><strong>Data:</strong> Kafka (KRaft migration), PostgreSQL (Patroni), Cassandra, MongoDB.</li>
+                            <li><strong>Infra:</strong> Nginx, HAProxy, MinIO, Keycloak.</li>
+                        </ul>
+                    </div>
+                    <div class="lang-ru">
+                        <ul>
+                            <li><strong>Kubernetes:</strong> Полный цикл настройки, обновлений и масштабирования.</li>
+                            <li><strong>CI/CD:</strong> Пайплайны GitLab, кастомные Jenkins Shared Libraries.</li>
+                            <li><strong>Observability:</strong> Prometheus, VictoriaMetrics, Grafana, Loki.</li>
+                            <li><strong>Data:</strong> Kafka (миграция на KRaft), PostgreSQL (Patroni), Cassandra, MongoDB.</li>
+                            <li><strong>Infra:</strong> Nginx, HAProxy, MinIO, Keycloak.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- REG.RU -->
+            <div class="experience-card card glass">
+                <div class="exp-header">
+                    <div class="exp-role">
+                        <span class="lang-en">DevOps Engineer</span>
+                        <span class="lang-ru">DevOps-инженер</span>
+                    </div>
+                    <div class="exp-company">REG.RU</div>
+                    <div class="exp-date">
+                        <span class="lang-en">Mar 2020 — Nov 2020</span>
+                        <span class="lang-ru">Март 2020 — Ноябрь 2020</span>
+                    </div>
+                </div>
+                <div class="exp-content">
+                    <div class="lang-en">
+                        <ul>
+                            <li>Optimized Docker images and Helm charts.</li>
+                            <li>Reduced delivery time to production from 45 to 12 minutes (GitLab CI).</li>
+                            <li>Configured Nginx/HAProxy load balancing and security.</li>
+                        </ul>
+                    </div>
+                    <div class="lang-ru">
+                        <ul>
+                            <li>Оптимизация Docker-образов и Helm-чартов.</li>
+                            <li>Сокращение времени доставки в прод с 45 до 12 минут.</li>
+                            <li>Настройка балансировки и безопасности Nginx/HAProxy.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- НАВЫКИ -->
+    <section class="section fade-in" id="skills">
+        <h3 class="section-title">
+            <span class="lang-en">Skills</span>
+            <span class="lang-ru">Навыки</span>
+        </h3>
+        <p class="section-lead">
+            <span class="lang-en">Click on a skill to view solved tasks.</span>
+            <span class="lang-ru">Кликните на навык, чтобы увидеть примеры задач.</span>
+        </p>
+
+        <div class="skills-container">
+
+            <!-- GROUP 1: Languages -->
+            <div class="skills-group">
+                <h4>
+                    <span class="lang-en">Languages</span>
+                    <span class="lang-ru">Языки</span>
+                </h4>
+                <div class="skills-list">
+                    <button class="skill-card" type="button" data-skill="Go" data-icon="https://cdn.simpleicons.org/go/00ADD8/ffffff">
+                        <img src="https://cdn.simpleicons.org/go/00ADD8/ffffff" alt="Go">
+                        <span>Go</span>
+                    </button>
+                    <ul class="skill-tasks" hidden>
+                        <li><span class="lang-en">Developed InfraKit validation tool.</span><span class="lang-ru">Разработка инструмента InfraKit.</span></li>
+                        <li><span class="lang-en">Implemented hybrid architecture (Pull-model).</span><span class="lang-ru">Гибридная архитектура (Pull-модель).</span></li>
+                        <li><span class="lang-en">Parallel network checks (Goroutines).</span><span class="lang-ru">Параллельные проверки сети (Goroutines).</span></li>
+                    </ul>
+
+                    <button class="skill-card" type="button" data-skill="Python" data-icon="https://cdn.simpleicons.org/python/3776AB/ffffff">
+                        <img src="https://cdn.simpleicons.org/python/3776AB/ffffff" alt="Python">
+                        <span>Python</span>
+                    </button>
+                    <ul class="skill-tasks" hidden>
+                        <li><span class="lang-en">CI/CD automation scripts.</span><span class="lang-ru">Скрипты автоматизации CI/CD.</span></li>
+                        <li><span class="lang-en">Data migration tools.</span><span class="lang-ru">Инструменты миграции данных.</span></li>
+                    </ul>
+
+                    <button class="skill-card" type="button" data-skill="SQL" data-icon="https://cdn.simpleicons.org/postgresql/336791/ffffff">
+                        <img src="https://cdn.simpleicons.org/postgresql/336791/ffffff" alt="SQL">
+                        <span>SQL</span>
+                    </button>
+                    <ul class="skill-tasks" hidden>
+                        <li><span class="lang-en">Query optimization.</span><span class="lang-ru">Оптимизация сложных запросов.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- GROUP 2: Infra -->
+            <div class="skills-group">
+                <h4>
+                    <span class="lang-en">Infrastructure</span>
+                    <span class="lang-ru">Инфраструктура</span>
+                </h4>
+                <div class="skills-list">
+                    <button class="skill-card" type="button" data-skill="Kubernetes" data-icon="https://cdn.simpleicons.org/kubernetes/326CE5/ffffff">
+                        <img src="https://cdn.simpleicons.org/kubernetes/326CE5/ffffff" alt="K8s">
+                        <span>Kubernetes</span>
+                    </button>
+                    <ul class="skill-tasks" hidden>
+                        <li><span class="lang-en">Stage to Prod full cycle.</span><span class="lang-ru">Полный цикл (Stage -> Prod).</span></li>
+                        <li><span class="lang-en">Zero-downtime upgrades.</span><span class="lang-ru">Обновления без простоя.</span></li>
+                    </ul>
+
+                    <button class="skill-card" type="button" data-skill="Docker" data-icon="https://cdn.simpleicons.org/docker/2496ED/ffffff">
+                        <img src="https://cdn.simpleicons.org/docker/2496ED/ffffff" alt="Docker">
+                        <span>Docker</span>
+                    </button>
+                    <ul class="skill-tasks" hidden>
+                        <li><span class="lang-en">Image optimization (multistage).</span><span class="lang-ru">Оптимизация образов (multistage).</span></li>
+                    </ul>
+
+                    <button class="skill-card" type="button" data-skill="Helm" data-icon="https://cdn.simpleicons.org/helm/0F1689/ffffff">
+                        <img src="https://cdn.simpleicons.org/helm/0F1689/ffffff" alt="Helm">
+                        <span>Helm</span>
+                    </button>
+                    <ul class="skill-tasks" hidden>
+                        <li><span class="lang-en">Custom charts for stateful apps.</span><span class="lang-ru">Кастомные чарты для stateful приложений.</span></li>
+                    </ul>
+
+                    <button class="skill-card" type="button" data-skill="CI/CD" data-icon="https://cdn.simpleicons.org/gitlab/FC6D26/ffffff">
+                        <img src="https://cdn.simpleicons.org/gitlab/FC6D26/ffffff" alt="CI/CD">
+                        <span>GitLab / Jenkins</span>
+                    </button>
+                    <ul class="skill-tasks" hidden>
+                        <li><span class="lang-en">Optimized pipelines (45m -> 12m).</span><span class="lang-ru">Ускорение пайплайнов (45м -> 12м).</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- GROUP 3: Observability & Data -->
+            <div class="skills-group">
+                <h4>
+                    <span class="lang-en">Data & Observability</span>
+                    <span class="lang-ru">Данные и Мониторинг</span>
+                </h4>
+                <div class="skills-list">
+                    <button class="skill-card" type="button" data-skill="Apache Kafka" data-icon="https://cdn.simpleicons.org/apachekafka/231F20/ffffff">
+                        <img src="https://cdn.simpleicons.org/apachekafka/231F20/ffffff" alt="Kafka">
+                        <span>Kafka</span>
+                    </button>
+                    <ul class="skill-tasks" hidden>
+                        <li><span class="lang-en">Migration to KRaft mode.</span><span class="lang-ru">Миграция на режим KRaft.</span></li>
+                        <li><span class="lang-en">SASL-SSL authentication.</span><span class="lang-ru">Настройка аутентификации SASL-SSL.</span></li>
+                    </ul>
+
+                    <button class="skill-card" type="button" data-skill="Prometheus" data-icon="https://cdn.simpleicons.org/prometheus/E6522C/ffffff">
+                        <img src="https://cdn.simpleicons.org/prometheus/E6522C/ffffff" alt="Prometheus">
+                        <span>Prometheus</span>
+                    </button>
+                    <ul class="skill-tasks" hidden>
+                        <li><span class="lang-en">Migration to VictoriaMetrics.</span><span class="lang-ru">Миграция на VictoriaMetrics.</span></li>
+                    </ul>
+
+                    <button class="skill-card" type="button" data-skill="MinIO" data-icon="https://cdn.simpleicons.org/minio/C72C48/ffffff">
+                        <img src="https://cdn.simpleicons.org/minio/C72C48/ffffff" alt="MinIO">
+                        <span>MinIO</span>
+                    </button>
+                    <ul class="skill-tasks" hidden>
+                        <li><span class="lang-en">KMS encryption setup.</span><span class="lang-ru">Настройка KMS шифрования.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Образование и Сертификаты -->
+    <div class="grid-2-col">
+        <section class="section fade-in">
+            <h3 class="section-title">
+                <span class="lang-en">Education</span>
+                <span class="lang-ru">Образование</span>
+            </h3>
+            <div class="card glass">
+                <div class="edu-item">
+                    <div class="edu-year">2024</div>
+                    <div class="edu-details">
+                        <strong class="lang-en">NUST MISIS</strong>
+                        <strong class="lang-ru">НИТУ «МИСиС»</strong>
+                        <div class="edu-degree">
+                            <span class="lang-en">Applied Informatics (Master's)</span>
+                            <span class="lang-ru">Прикладная информатика (Магистр)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-year">2022</div>
+                    <div class="edu-details">
+                        <strong class="lang-en">NUST MISIS</strong>
+                        <strong class="lang-ru">НИТУ «МИСиС»</strong>
+                        <div class="edu-degree">
+                            <span class="lang-en">Applied Mathematics (Bachelor's)</span>
+                            <span class="lang-ru">Прикладная математика (Бакалавр)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section fade-in">
+            <h3 class="section-title">
+                <span class="lang-en">Certificates</span>
+                <span class="lang-ru">Сертификаты</span>
+            </h3>
+            <div class="card glass">
+                <div class="cert-grid">
+                    <div class="skill-tag highlight">Skolkovo Hackathon (2021)</div>
+                    <div class="skill-tag highlight">Huawei Routing & Switching (2020)</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 Mikhail Lazarev.</p>
+    </footer>
+</div>
+
+<!-- Модальное окно -->
+<div class="skill-modal-backdrop" hidden></div>
+<div class="skill-modal" id="skill-modal" hidden>
+    <button class="skill-modal-close" type="button" aria-label="Close">&times;</button>
+    <div class="skill-modal-header">
+        <img src="" alt="" class="skill-modal-icon">
+        <div>
+            <p class="skill-modal-label">
+                <span class="lang-en">Completed Tasks</span>
+                <span class="lang-ru">Выполненные задачи</span>
+            </p>
+            <h3 class="skill-modal-title"></h3>
+        </div>
+    </div>
+    <ul class="skill-modal-list"></ul>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
