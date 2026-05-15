@@ -21,6 +21,9 @@
 </head>
 <body class="lang-en dark-mode"> <!-- Класс управляется через JS -->
 
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress"></div>
+
 <!-- Кнопки управления (язык и тема) -->
 <div class="controls">
     <button id="lang-switch" aria-label="Switch Language">
@@ -92,6 +95,36 @@
         </div>
     </section>
 
+    <!-- Статистика (счетчики) -->
+    <section class="section stats-section fade-in">
+        <div class="stats-grid">
+            <div class="stat-item card glass">
+                <div class="stat-icon"><i class="fas fa-code"></i></div>
+                <span class="stat-number" data-target="5">0</span>
+                <span class="stat-label lang-en">Years in IT</span>
+                <span class="stat-label lang-ru">Лет в IT</span>
+            </div>
+            <div class="stat-item card glass">
+                <div class="stat-icon"><i class="fas fa-briefcase"></i></div>
+                <span class="stat-number" data-target="3">0</span>
+                <span class="stat-label lang-en">Companies</span>
+                <span class="stat-label lang-ru">Компании</span>
+            </div>
+            <div class="stat-item card glass">
+                <div class="stat-icon"><i class="fas fa-rocket"></i></div>
+                <span class="stat-number" data-target="15">0</span>
+                <span class="stat-label lang-en">Projects</span>
+                <span class="stat-label lang-ru">Проектов</span>
+            </div>
+            <div class="stat-item card glass">
+                <div class="stat-icon"><i class="fas fa-cogs"></i></div>
+                <span class="stat-number" data-target="20">0</span>
+                <span class="stat-label lang-en">Technologies</span>
+                <span class="stat-label lang-ru">Технологий</span>
+            </div>
+        </div>
+    </section>
+
     <!-- Опыт работы (Timeline) -->
     <section class="section fade-in">
         <h3 class="section-title">
@@ -115,23 +148,35 @@
                 </div>
                 <div class="exp-content">
                     <div class="lang-en">
-                        <p><strong>Project: InfraKit (Infrastructure Validation Tool)</strong></p>
+                        <p><strong>1. Infrastructure Validation Platform</strong></p>
                         <ul>
-                            <li>Implemented hybrid architecture with Pull-model (agent requests tasks).</li>
-                            <li>Created cross-platform agent modules: metrics, CPU/RAM validation, SELinux checks.</li>
-                            <li>Implemented parallel execution of network checks (ports, DNS, NTP) using Goroutines.</li>
-                            <li>Designed REST API for integration with Deployer platform.</li>
-                            <li>Developed reporting subsystem (JSON/HTML) and YAML config parsing with inheritance.</li>
+                            <li>Go CLI that pre-validates on-premise environments before deployment — catches misconfigurations early, reduces rollback risks.</li>
+                            <li>Agent-Server architecture with REST API (~65 endpoints) and 49+ validation modules covering hardware, network, security, and services.</li>
+                            <li>Parallel check execution powered by Goroutines with real-time progress bars; infrastructure described declaratively via YAML configs with inheritance.</li>
+                            <li>Integrates with Kubernetes, Docker, Prometheus, etcd, Kafka, PostgreSQL, S3/MinIO, gRPC, and BGP — one tool checks the entire stack.</li>
+                        </ul>
+                        <p style="margin-top: 12px;"><strong>2. Nexus Distribution Builder</strong></p>
+                        <ul>
+                            <li>Go CLI that automates Nexus repository assembly and generates self-extracting <code>.run</code> installers for on-premise delivery.</li>
+                            <li>Builder pattern with dependency injection; artifact pull strategies for Docker, Raw, YUM, and Helm repositories with concurrent downloads.</li>
+                            <li>Manages Nexus containers via Docker API, provisions repositories through Nexus REST API — fully automated lifecycle.</li>
+                            <li>Integrates with Docker, S3/MinIO, Helm v3, and Nexus REST API for end-to-end distribution pipeline.</li>
                         </ul>
                     </div>
                     <div class="lang-ru">
-                        <p><strong>Проект: InfraKit (Инструмент валидации инфраструктуры)</strong></p>
+                        <p><strong>1. Продукт валидации инфраструктуры</strong></p>
                         <ul>
-                            <li>Реализация гибридной архитектуры с Pull-моделью.</li>
-                            <li>Создание модулей агента: сбор метрик, валидация CPU/RAM, проверка SELinux.</li>
-                            <li>Параллельное выполнение сетевых проверок (порты, DNS, NTP) на Goroutines.</li>
-                            <li>Проектирование REST API для интеграции с Deployer.</li>
-                            <li>Разработка генерации отчетов (JSON/HTML) и парсинг YAML с наследованием.</li>
+                            <li>Go CLI для проверки готовности on-premise среды перед деплоем — выявляет проблемы до того, как они повлияют на продакшен.</li>
+                            <li>Agent-Server архитектура, REST API (~65 эндпоинтов), 49+ модулей проверок (железо, сеть, безопасность, сервисы).</li>
+                            <li>Параллельное выполнение на Goroutines с progress-барами в реальном времени; YAML-конфигурация с поддержкой наследования.</li>
+                            <li>Интеграция: Kubernetes, Docker, Prometheus, etcd, Kafka, PostgreSQL, S3/MinIO, gRPC, BGP — единый инструмент для всей инфраструктуры.</li>
+                        </ul>
+                        <p style="margin-top: 12px;"><strong>2. Продукт сборки Nexus-дистрибутивов</strong></p>
+                        <ul>
+                            <li>Go CLI для автоматизации сборки Nexus-репозиториев и генерации self-extracting <code>.run</code>-инсталляторов для доставки on-premise.</li>
+                            <li>Builder + DI, стратегия загрузки артефактов (Docker, Raw, YUM, Helm), параллельная загрузка через горутины.</li>
+                            <li>Управление Nexus-контейнером через Docker API, provision репозиториев через Nexus REST API — полностью автоматизированный цикл.</li>
+                            <li>Интеграция: Docker, S3/MinIO, Helm v3, Nexus REST API — сквозной пайплайн сборки и доставки дистрибутивов.</li>
                         </ul>
                     </div>
                 </div>
@@ -233,9 +278,9 @@
                         <span>Go</span>
                     </button>
                     <ul class="skill-tasks" hidden>
-                        <li><span class="lang-en">Developed InfraKit validation tool.</span><span class="lang-ru">Разработка инструмента InfraKit.</span></li>
-                        <li><span class="lang-en">Implemented hybrid architecture (Pull-model).</span><span class="lang-ru">Гибридная архитектура (Pull-модель).</span></li>
-                        <li><span class="lang-en">Parallel network checks (Goroutines).</span><span class="lang-ru">Параллельные проверки сети (Goroutines).</span></li>
+                        <li><span class="lang-en">Infrastructure validation CLI — Agent-Server, REST API (~65 endpoints), 49+ check modules.</span><span class="lang-ru">CLI для валидации инфраструктуры — Agent-Server, REST API (~65 эндпоинтов), 49+ модулей.</span></li>
+                        <li><span class="lang-en">Nexus distribution builder — Builder + DI, self-extracting .run installers, parallel artifact download.</span><span class="lang-ru">Сборщик Nexus-дистрибутивов — Builder + DI, self-extracting .run, параллельная загрузка.</span></li>
+                        <li><span class="lang-en">Concurrent execution with Goroutines, progress bars, YAML configs with inheritance.</span><span class="lang-ru">Параллельное выполнение на Goroutines с progress-барами, YAML-конфиги с наследованием.</span></li>
                     </ul>
 
                     <button class="skill-card" type="button" data-skill="Python" data-icon="https://cdn.simpleicons.org/python/3776AB/ffffff">
@@ -243,8 +288,8 @@
                         <span>Python</span>
                     </button>
                     <ul class="skill-tasks" hidden>
-                        <li><span class="lang-en">CI/CD automation scripts.</span><span class="lang-ru">Скрипты автоматизации CI/CD.</span></li>
-                        <li><span class="lang-en">Data migration tools.</span><span class="lang-ru">Инструменты миграции данных.</span></li>
+                        <li><span class="lang-en">CI/CD automation scripts and pipeline helpers.</span><span class="lang-ru">Скрипты автоматизации CI/CD.</span></li>
+                        <li><span class="lang-en">Data migration and infrastructure tooling.</span><span class="lang-ru">Инструменты миграции данных и инфраструктурные утилиты.</span></li>
                     </ul>
 
                     <button class="skill-card" type="button" data-skill="SQL" data-icon="https://cdn.simpleicons.org/postgresql/336791/ffffff">
@@ -252,16 +297,26 @@
                         <span>SQL</span>
                     </button>
                     <ul class="skill-tasks" hidden>
-                        <li><span class="lang-en">Query optimization.</span><span class="lang-ru">Оптимизация сложных запросов.</span></li>
+                        <li><span class="lang-en">Complex query optimization for production databases.</span><span class="lang-ru">Оптимизация сложных запросов в production БД.</span></li>
+                        <li><span class="lang-en">PostgreSQL cluster management with Patroni.</span><span class="lang-ru">Управление кластерами PostgreSQL с Patroni.</span></li>
+                    </ul>
+
+                    <button class="skill-card" type="button" data-skill="Bash" data-icon="https://cdn.simpleicons.org/gnubash/4EAA25/ffffff">
+                        <img src="https://cdn.simpleicons.org/gnubash/4EAA25/ffffff" alt="Bash">
+                        <span>Bash</span>
+                    </button>
+                    <ul class="skill-tasks" hidden>
+                        <li><span class="lang-en">Linux server automation, monitoring scripts, zombie-process cleanup.</span><span class="lang-ru">Автоматизация Linux-серверов, скрипты мониторинга, чистка «зомби»-процессов.</span></li>
+                        <li><span class="lang-en">Infrastructure diagnostics and incident response tooling.</span><span class="lang-ru">Инструменты диагностики инфраструктуры и реагирования на инциденты.</span></li>
                     </ul>
                 </div>
             </div>
 
-            <!-- GROUP 2: Infra -->
+            <!-- GROUP 2: Infrastructure & Automation -->
             <div class="skills-group">
                 <h4>
-                    <span class="lang-en">Infrastructure</span>
-                    <span class="lang-ru">Инфраструктура</span>
+                    <span class="lang-en">Infrastructure &amp; Automation</span>
+                    <span class="lang-ru">Инфраструктура и Автоматизация</span>
                 </h4>
                 <div class="skills-list">
                     <button class="skill-card" type="button" data-skill="Kubernetes" data-icon="https://cdn.simpleicons.org/kubernetes/326CE5/ffffff">
@@ -269,8 +324,10 @@
                         <span>Kubernetes</span>
                     </button>
                     <ul class="skill-tasks" hidden>
-                        <li><span class="lang-en">Stage to Prod full cycle.</span><span class="lang-ru">Полный цикл (Stage -> Prod).</span></li>
-                        <li><span class="lang-en">Zero-downtime upgrades.</span><span class="lang-ru">Обновления без простоя.</span></li>
+                        <li><span class="lang-en">Full cluster lifecycle from scratch — stage to production.</span><span class="lang-ru">Полный цикл кластеров — от stage до production с нуля.</span></li>
+                        <li><span class="lang-en">Zero-downtime version upgrades, worker node scaling.</span><span class="lang-ru">Zero-downtime обновления версий, управление worker-нодами.</span></li>
+                        <li><span class="lang-en">Incident management, root cause analysis, cluster stability assurance.</span><span class="lang-ru">Устранение инцидентов, анализ причин сбоев, обеспечение стабильности.</span></li>
+                        <li><span class="lang-en">Spark cluster deployment and Airflow integration in K8s.</span><span class="lang-ru">Развёртывание Spark-кластера и интеграция Airflow в K8s.</span></li>
                     </ul>
 
                     <button class="skill-card" type="button" data-skill="Docker" data-icon="https://cdn.simpleicons.org/docker/2496ED/ffffff">
@@ -278,7 +335,9 @@
                         <span>Docker</span>
                     </button>
                     <ul class="skill-tasks" hidden>
-                        <li><span class="lang-en">Image optimization (multistage).</span><span class="lang-ru">Оптимизация образов (multistage).</span></li>
+                        <li><span class="lang-en">Multistage image optimization — reducing size and startup time.</span><span class="lang-ru">Оптимизация образов (multistage) — уменьшение размера и времени запуска.</span></li>
+                        <li><span class="lang-en">Mongo-UI image adaptation — added TLS support via source modification.</span><span class="lang-ru">Адаптация Mongo-UI — добавление TLS через модификацию исходного кода.</span></li>
+                        <li><span class="lang-en">Nexus container management via Docker API for artifact provisioning.</span><span class="lang-ru">Управление Nexus-контейнером через Docker API для provision артефактов.</span></li>
                     </ul>
 
                     <button class="skill-card" type="button" data-skill="Helm" data-icon="https://cdn.simpleicons.org/helm/0F1689/ffffff">
@@ -286,49 +345,177 @@
                         <span>Helm</span>
                     </button>
                     <ul class="skill-tasks" hidden>
-                        <li><span class="lang-en">Custom charts for stateful apps.</span><span class="lang-ru">Кастомные чарты для stateful приложений.</span></li>
+                        <li><span class="lang-en">Custom charts for stateful applications — Apache NiFi, NiFi-Registry.</span><span class="lang-ru">Кастомные чарты для stateful-приложений — Apache NiFi, NiFi-Registry.</span></li>
+                        <li><span class="lang-en">Chart modification, versioning, and maintenance for production services.</span><span class="lang-ru">Модификация, версионирование и поддержка чартов production-сервисов.</span></li>
                     </ul>
 
-                    <button class="skill-card" type="button" data-skill="CI/CD" data-icon="https://cdn.simpleicons.org/gitlab/FC6D26/ffffff">
-                        <img src="https://cdn.simpleicons.org/gitlab/FC6D26/ffffff" alt="CI/CD">
-                        <span>GitLab / Jenkins</span>
+                    <button class="skill-card" type="button" data-skill="Ansible" data-icon="https://cdn.simpleicons.org/ansible/EE0000/ffffff">
+                        <img src="https://cdn.simpleicons.org/ansible/EE0000/ffffff" alt="Ansible">
+                        <span>Ansible</span>
                     </button>
                     <ul class="skill-tasks" hidden>
-                        <li><span class="lang-en">Optimized pipelines (45m -> 12m).</span><span class="lang-ru">Ускорение пайплайнов (45м -> 12м).</span></li>
+                        <li><span class="lang-en">Role migration and adaptation for new OS versions.</span><span class="lang-ru">Миграция и адаптация ролей под новые версии ОС.</span></li>
+                        <li><span class="lang-en">Custom playbooks for service deployment, diagnostics, and automation.</span><span class="lang-ru">Плейбуки для деплоя сервисов, диагностики и автоматизации.</span></li>
+                    </ul>
+
+                    <button class="skill-card" type="button" data-skill="Terraform" data-icon="https://cdn.simpleicons.org/terraform/7B42BC/ffffff">
+                        <img src="https://cdn.simpleicons.org/terraform/7B42BC/ffffff" alt="Terraform">
+                        <span>Terraform</span>
+                    </button>
+                    <ul class="skill-tasks" hidden>
+                        <li><span class="lang-en">Virtual machine provisioning and lifecycle management.</span><span class="lang-ru">Создание и управление жизненным циклом виртуальных машин.</span></li>
                     </ul>
                 </div>
             </div>
 
-            <!-- GROUP 3: Observability & Data -->
+            <!-- GROUP 3: Networking, Security & CI/CD -->
             <div class="skills-group">
                 <h4>
-                    <span class="lang-en">Data & Observability</span>
-                    <span class="lang-ru">Данные и Мониторинг</span>
+                    <span class="lang-en">Networking, Security &amp; CI/CD</span>
+                    <span class="lang-ru">Сети, Безопасность и CI/CD</span>
                 </h4>
                 <div class="skills-list">
-                    <button class="skill-card" type="button" data-skill="Apache Kafka" data-icon="https://cdn.simpleicons.org/apachekafka/231F20/ffffff">
-                        <img src="https://cdn.simpleicons.org/apachekafka/231F20/ffffff" alt="Kafka">
-                        <span>Kafka</span>
+                    <button class="skill-card" type="button" data-skill="Nginx / HAProxy" data-icon="https://cdn.simpleicons.org/nginx/009639/ffffff">
+                        <img src="https://cdn.simpleicons.org/nginx/009639/ffffff" alt="Nginx">
+                        <span>Nginx / HAProxy</span>
                     </button>
                     <ul class="skill-tasks" hidden>
-                        <li><span class="lang-en">Migration to KRaft mode.</span><span class="lang-ru">Миграция на режим KRaft.</span></li>
-                        <li><span class="lang-en">SASL-SSL authentication.</span><span class="lang-ru">Настройка аутентификации SASL-SSL.</span></li>
+                        <li><span class="lang-en">Reverse proxy, load balancing, SSL/TLS, HSTS, CSP security headers.</span><span class="lang-ru">Reverse proxy, балансировка, SSL/TLS, HTTP-заголовки (HSTS, CSP).</span></li>
+                        <li><span class="lang-en">High availability setup with Keepalived.</span><span class="lang-ru">Обеспечение отказоустойчивости с Keepalived.</span></li>
+                        <li><span class="lang-en">Virtual host configuration and traffic routing for multiple applications.</span><span class="lang-ru">Настройка виртуальных хостов и маршрутизация трафика.</span></li>
                     </ul>
 
-                    <button class="skill-card" type="button" data-skill="Prometheus" data-icon="https://cdn.simpleicons.org/prometheus/E6522C/ffffff">
-                        <img src="https://cdn.simpleicons.org/prometheus/E6522C/ffffff" alt="Prometheus">
-                        <span>Prometheus</span>
+                    <button class="skill-card" type="button" data-skill="Keycloak" data-icon="https://cdn.simpleicons.org/keycloak/C75C5C/ffffff">
+                        <img src="https://cdn.simpleicons.org/keycloak/C75C5C/ffffff" alt="Keycloak">
+                        <span>Keycloak</span>
                     </button>
                     <ul class="skill-tasks" hidden>
-                        <li><span class="lang-en">Migration to VictoriaMetrics.</span><span class="lang-ru">Миграция на VictoriaMetrics.</span></li>
+                        <li><span class="lang-en">Client creation, administration, and LDAP integration for centralized auth.</span><span class="lang-ru">Создание и администрирование клиентов, интеграция с LDAP.</span></li>
+                    </ul>
+
+                    <button class="skill-card" type="button" data-skill="GitLab CI" data-icon="https://cdn.simpleicons.org/gitlab/FC6D26/ffffff">
+                        <img src="https://cdn.simpleicons.org/gitlab/FC6D26/ffffff" alt="GitLab">
+                        <span>GitLab CI</span>
+                    </button>
+                    <ul class="skill-tasks" hidden>
+                        <li><span class="lang-en">Full CI/CD pipeline development — build, test, deploy automation.</span><span class="lang-ru">Разработка пайплайнов CI/CD — сборка, тестирование, деплой.</span></li>
+                        <li><span class="lang-en">Optimized delivery time from 45 to 12 minutes — pipeline restructuring and parallel stages.</span><span class="lang-ru">Сокращение времени доставки с 45 до 12 минут — реструктуризация и распараллеливание.</span></li>
+                    </ul>
+
+                    <button class="skill-card" type="button" data-skill="Jenkins" data-icon="https://cdn.simpleicons.org/jenkins/D24939/ffffff">
+                        <img src="https://cdn.simpleicons.org/jenkins/D24939/ffffff" alt="Jenkins">
+                        <span>Jenkins</span>
+                    </button>
+                    <ul class="skill-tasks" hidden>
+                        <li><span class="lang-en">Custom Jenkins Shared Libraries (JSL) for process standardization.</span><span class="lang-ru">Написание кастомных Jenkins Shared Libraries для стандартизации.</span></li>
+                        <li><span class="lang-en">Job configuration, pipeline troubleshooting, and reliability improvements.</span><span class="lang-ru">Настройка job'ов, диагностика сбоев, повышение надёжности пайплайнов.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- GROUP 4: Monitoring & Observability -->
+            <div class="skills-group">
+                <h4>
+                    <span class="lang-en">Monitoring &amp; Observability</span>
+                    <span class="lang-ru">Мониторинг и Observability</span>
+                </h4>
+                <div class="skills-list">
+                    <button class="skill-card" type="button" data-skill="Prometheus" data-icon="https://cdn.simpleicons.org/prometheus/E6522C/ffffff">
+                        <img src="https://cdn.simpleicons.org/prometheus/E6522C/ffffff" alt="Prometheus">
+                        <span>Prometheus / VM</span>
+                    </button>
+                    <ul class="skill-tasks" hidden>
+                        <li><span class="lang-en">PromQL queries, recording and alerting rules for service availability and resource usage.</span><span class="lang-ru">PromQL-запросы, recording и alerting rules для доступности и ресурсов.</span></li>
+                        <li><span class="lang-en">JMX Exporter setup for Cassandra, Apache Ignite, and other JVM apps.</span><span class="lang-ru">Настройка JMX Exporter для Cassandra, Apache Ignite и JVM-приложений.</span></li>
+                        <li><span class="lang-en">Seamless migration from Prometheus to VictoriaMetrics with full history retention.</span><span class="lang-ru">Миграция с Prometheus на VictoriaMetrics с сохранением истории.</span></li>
+                    </ul>
+
+                    <button class="skill-card" type="button" data-skill="Grafana" data-icon="https://cdn.simpleicons.org/grafana/F46800/ffffff">
+                        <img src="https://cdn.simpleicons.org/grafana/F46800/ffffff" alt="Grafana">
+                        <span>Grafana / Loki</span>
+                    </button>
+                    <ul class="skill-tasks" hidden>
+                        <li><span class="lang-en">Detailed dashboards for cluster, infrastructure, and business metrics visualization.</span><span class="lang-ru">Детализированные дашборды для визуализации метрик кластера и бизнеса.</span></li>
+                        <li><span class="lang-en">Alertmanager routing to Slack, Telegram, and email with on-call schedules.</span><span class="lang-ru">Маршрутизация алертов в Slack, Telegram, email с учётом дежурств.</span></li>
+                        <li><span class="lang-en">Loki — retention policies, scaling, and performance optimization.</span><span class="lang-ru">Loki — политики хранения, масштабирование, оптимизация производительности.</span></li>
+                    </ul>
+
+                    <button class="skill-card" type="button" data-skill="Zabbix" data-icon="https://cdn.simpleicons.org/zabbix/DC3840/ffffff">
+                        <img src="https://cdn.simpleicons.org/zabbix/DC3840/ffffff" alt="Zabbix">
+                        <span>Zabbix</span>
+                    </button>
+                    <ul class="skill-tasks" hidden>
+                        <li><span class="lang-en">Legacy monitoring system management and maintenance.</span><span class="lang-ru">Поддержка и администрирование легаси-систем мониторинга.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- GROUP 5: Data, Streaming & Storage -->
+            <div class="skills-group">
+                <h4>
+                    <span class="lang-en">Data, Streaming &amp; Storage</span>
+                    <span class="lang-ru">Данные, Стриминг и Хранилища</span>
+                </h4>
+                <div class="skills-list">
+                    <button class="skill-card" type="button" data-skill="Apache Kafka" data-icon="https://cdn.simpleicons.org/apachekafka/E85C2C/ffffff">
+                        <img src="https://cdn.simpleicons.org/apachekafka/E85C2C/ffffff" alt="Kafka">
+                        <span>Apache Kafka</span>
+                    </button>
+                    <ul class="skill-tasks" hidden>
+                        <li><span class="lang-en">Cluster migration from etcd to KRaft coordination mode.</span><span class="lang-ru">Миграция кластера с etcd на встроенный KRaft.</span></li>
+                        <li><span class="lang-en">SASL-SSL authentication (SCRAM-SHA-256) for secure access.</span><span class="lang-ru">Внедрение SASL-SSL (SCRAM-SHA-256) для безопасного доступа.</span></li>
+                    </ul>
+
+                    <button class="skill-card" type="button" data-skill="PostgreSQL" data-icon="https://cdn.simpleicons.org/postgresql/336791/ffffff">
+                        <img src="https://cdn.simpleicons.org/postgresql/336791/ffffff" alt="PostgreSQL">
+                        <span>PostgreSQL</span>
+                    </button>
+                    <ul class="skill-tasks" hidden>
+                        <li><span class="lang-en">High-availability cluster management with Patroni.</span><span class="lang-ru">Управление кластерами высокой доступности с Patroni.</span></li>
+                        <li><span class="lang-en">Backup automation, monitoring, and performance tuning.</span><span class="lang-ru">Автоматизация бэкапов, мониторинг, тюнинг производительности.</span></li>
+                    </ul>
+
+                    <button class="skill-card" type="button" data-skill="MongoDB" data-icon="https://cdn.simpleicons.org/mongodb/47A248/ffffff">
+                        <img src="https://cdn.simpleicons.org/mongodb/47A248/ffffff" alt="MongoDB">
+                        <span>MongoDB</span>
+                    </button>
+                    <ul class="skill-tasks" hidden>
+                        <li><span class="lang-en">Cluster management, high availability, security and replication.</span><span class="lang-ru">Управление кластерами, отказоустойчивость, безопасность, репликация.</span></li>
+                    </ul>
+
+                    <button class="skill-card" type="button" data-skill="Apache Cassandra" data-icon="https://cdn.simpleicons.org/apachecassandra/1287B1/ffffff">
+                        <img src="https://cdn.simpleicons.org/apachecassandra/1287B1/ffffff" alt="Cassandra">
+                        <span>Cassandra</span>
+                    </button>
+                    <ul class="skill-tasks" hidden>
+                        <li><span class="lang-en">Cluster deployment, JMX monitoring, and performance optimization.</span><span class="lang-ru">Развёртывание кластеров, JMX-мониторинг, оптимизация.</span></li>
+                    </ul>
+
+                    <button class="skill-card" type="button" data-skill="Apache Airflow" data-icon="https://cdn.simpleicons.org/apacheairflow/017CEE/ffffff">
+                        <img src="https://cdn.simpleicons.org/apacheairflow/017CEE/ffffff" alt="Airflow">
+                        <span>Airflow</span>
+                    </button>
+                    <ul class="skill-tasks" hidden>
+                        <li><span class="lang-en">Deployment and configuration in Kubernetes environment.</span><span class="lang-ru">Развёртывание и настройка в Kubernetes.</span></li>
+                        <li><span class="lang-en">Integration with external Spark clusters via REST API and Apache Livy.</span><span class="lang-ru">Интеграция с внешними Spark-кластерами через REST API и Livy.</span></li>
+                    </ul>
+
+                    <button class="skill-card" type="button" data-skill="Apache NiFi" data-icon="https://cdn.simpleicons.org/apachenifi/728E9B/ffffff">
+                        <img src="https://cdn.simpleicons.org/apachenifi/728E9B/ffffff" alt="NiFi">
+                        <span>NiFi / Registry</span>
+                    </button>
+                    <ul class="skill-tasks" hidden>
+                        <li><span class="lang-en">Custom Helm charts for NiFi and NiFi-Registry deployment in K8s.</span><span class="lang-ru">Кастомные Helm-чарты для NiFi и NiFi-Registry в K8s.</span></li>
+                        <li><span class="lang-en">Flow sync automation: NiFi → Registry → Git with auto-merge and approvals.</span><span class="lang-ru">Автоматизация синхронизации flow: NiFi → Registry → Git с auto-merge.</span></li>
                     </ul>
 
                     <button class="skill-card" type="button" data-skill="MinIO" data-icon="https://cdn.simpleicons.org/minio/C72C48/ffffff">
                         <img src="https://cdn.simpleicons.org/minio/C72C48/ffffff" alt="MinIO">
-                        <span>MinIO</span>
+                        <span>MinIO / S3</span>
                     </button>
                     <ul class="skill-tasks" hidden>
-                        <li><span class="lang-en">KMS encryption setup.</span><span class="lang-ru">Настройка KMS шифрования.</span></li>
+                        <li><span class="lang-en">KMS encryption setup for data at rest.</span><span class="lang-ru">Настройка KMS-шифрования для данных в покое.</span></li>
+                        <li><span class="lang-en">Bucket provisioning automation and user management.</span><span class="lang-ru">Автоматизация создания бакетов и управления пользователями.</span></li>
                     </ul>
                 </div>
             </div>
